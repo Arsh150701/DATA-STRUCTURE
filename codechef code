@@ -1,0 +1,77 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef2
+{
+    static int rep(char a,String s)
+    {
+        int p=0;
+        for(int i=0;i<s.length();++i)
+        {
+            if(a==s.charAt(i))
+            {
+                p=1;
+                //System.out.println("Fuck you "+a+" "+s.charAt(i));
+            }
+        }
+        return p;
+    }
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner sc=new Scanner(System.in);
+        int T=sc.nextInt();
+        for(int i=0;i<T;++i)
+        {
+            int N=sc.nextInt();
+            sc.nextLine();
+            String s[]=new String[N];
+            for(int j=0;j<N;++j)
+            s[j]=sc.nextLine();
+            int d=0;
+            int d1=0;
+            for(int j=0;j<s[0].length();++j)
+            {
+                int p=0;
+                d=0;
+                char c=s[0].charAt(j);
+                for(int k=0;k<j;++k)
+                {
+                    if(s[0].charAt(k)==c)
+                    p=1;
+                }
+                if(p!=1)
+                {
+                    
+                    for(int k=1;k<N;++k)
+                    {
+                        int c1=rep(c,s[k]);
+                        if(c1==1)
+                        ++d;
+                    
+                        /*int co=0;
+                        * String s2=s[k];
+                            * for(int l=0;l<s2.length();++l)
+                            * {
+                            *     if(c==s2.charAt(l)) 
+                            *     {
+                            *         ++co;
+                            *         System.out.println(co);
+                            *         break;
+                            *       }
+                            *   }*/
+                    
+                            //if(c1==(N-1))
+                            //++d;
+                    }
+                    if(d==(N-1))
+                    ++d1;
+                }
+            }
+            System.out.println(d1);
+        }
+    }
+}
